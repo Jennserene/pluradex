@@ -1,6 +1,12 @@
 import './globals.css'
+import styles from './layout.module.css';
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Providers from "@/components/context/providers";
+import Header from '@/components/header/header';
+import Footer from '@/components/footer/footer';
+import SideBar from "@/components/nav/sideBar";
+import React from "react";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +22,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Providers>
+            <Header />
+            <main className={styles.main}>
+                <SideBar />
+                {children}
+            </main>
+            <Footer />
+        </Providers>
+      </body>
     </html>
   )
 }

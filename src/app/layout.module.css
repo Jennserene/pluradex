@@ -1,0 +1,57 @@
+.main {
+    @apply grid md:grid-cols-sidebar mt-16 min-h-fit h-full;
+}
+
+.header {
+    @apply bg-white text-zinc-500 flex items-center w-full fixed z-10 px-4 shadow-sm h-16;
+}
+
+.headerLeft {
+    @apply font-bold text-lg;
+}
+
+.headerCenter {
+    @apply flex-grow;
+}
+
+/*.headerRight {*/
+/*    @apply md:hidden;*/
+/*}*/
+
+.openNavMenuButton {
+    @apply md:hidden;
+}
+
+.openNavMenuIcon {
+    @apply h-6 w-6;
+}
+
+.closeNavMenuContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.closeNavMenuButton {
+    height: 25px;
+    width: 25px;
+    font-size: larger;
+    margin: 5px;
+}
+
+.nav {
+    @apply flex flex-col justify-between text-zinc-50 md:w-full md:sticky md:top-16 md:z-0 top-0 z-20 fixed md:h-[calc(100vh_-_64px)] h-full w-[300px] transition-transform duration-300 ease-in-out md:translate-x-0;
+}
+
+.navMenuContainer {
+    @apply md:sticky top-0 md:top-16;
+}
+
+.navList {
+    @apply py-2 flex flex-col gap-2;
+}
+
+.footer {
+    @apply fixed inset-x-0 bottom-0;
+}
