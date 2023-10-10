@@ -11,7 +11,6 @@ const SideBar = () => {
 
     return (
         <nav className={clsx(styles.nav, {
-            "bg-indigo-700": true,
             "-translate-x-full": !isOpen,
         })}>
             <div className={styles.navMenuContainer}>
