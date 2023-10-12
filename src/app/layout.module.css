@@ -1,9 +1,49 @@
+.root {
+    @apply grid min-h-full transition-[grid-template-columns] duration-300 ease-in-out;
+}
+
+/******SIDE BAR NAVIGATION******/
+
+.nav {
+    @apply bg-indigo-700 text-zinc-50 z-20 transition-all duration-300 ease-in-out fixed md:static md:translate-x-0;
+}
+
+.navMenuContainer {
+    @apply flex flex-col justify-between h-screen sticky inset-0 w-full;
+}
+
+.navMenuHeader {
+    @apply flex items-center border-b border-b-indigo-800 transition-none;
+}
+
+.navMenuLogo {
+    @apply whitespace-nowrap;
+}
+
+.toggleNavMenuButton {
+    @apply grid place-content-center hover:bg-indigo-800 w-10 h-10 rounded-full;
+}
+
+.navList {
+    @apply flex-grow my-2 flex flex-col gap-2 items-stretch;
+}
+
+.navItem {
+    @apply text-indigo-100 hover:bg-indigo-900 flex transition-colors duration-300;
+}
+
+.navLink {
+    @apply flex gap-2;
+}
+
+/******MAIN CONTENT AREA******/
+
 .main {
-    @apply grid md:grid-cols-sidebar mt-16 min-h-fit h-full;
+    @apply flex flex-col min-h-screen;
 }
 
 .header {
-    @apply bg-white text-zinc-500 flex items-center w-full fixed z-10 px-4 shadow-sm h-16;
+    @apply bg-white text-zinc-500 flex items-center w-screen md:w-full sticky z-10 px-4 shadow-sm h-[73px] top-0;
 }
 
 .headerLeft {
@@ -14,44 +54,20 @@
     @apply flex-grow;
 }
 
-/*.headerRight {*/
-/*    @apply md:hidden;*/
-/*}*/
-
-.openNavMenuButton {
+.headerRight {
     @apply md:hidden;
 }
 
-.openNavMenuIcon {
-    @apply h-6 w-6;
-}
-
-.closeNavMenuContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 100%;
-}
-
-.closeNavMenuButton {
-    height: 25px;
-    width: 25px;
-    font-size: larger;
-    margin: 5px;
-}
-
-.nav {
-    @apply flex flex-col justify-between bg-indigo-700 text-zinc-50 md:w-full md:sticky md:top-16 md:z-0 top-0 z-20 fixed md:h-[calc(100vh_-_64px)] h-full w-[300px] transition-transform duration-300 ease-in-out md:translate-x-0;
-}
-
-.navMenuContainer {
-    @apply md:sticky top-0 md:top-16;
-}
-
-.navList {
-    @apply py-2 flex flex-col gap-2;
-}
+/*.openNavMenuButton {*/
+/*    @apply md:hidden;*/
+/*}*/
 
 .footer {
-    @apply fixed inset-x-0 bottom-0;
+    @apply bg-white text-zinc-500 flex items-center w-screen md:w-full;
+}
+
+/******GLOBAL******/
+
+.icon {
+    @apply h-6 w-6;
 }

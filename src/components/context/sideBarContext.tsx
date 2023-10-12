@@ -4,7 +4,7 @@ export interface IProviderProps {
     children?: any;
 }
 
-type SideBarContextState = { isOpen: boolean }
+type SideBarContextState = { collapsed: boolean, shown: boolean }
 
 type SideBarContextValue = {
     state: SideBarContextState;
@@ -14,7 +14,7 @@ type SideBarContextValue = {
 export const SideBarContext = createContext<SideBarContextValue | undefined>(undefined);
 
 export const SideBarProvider = (props: IProviderProps) => {
-    const [state, setState] = useState({ isOpen: false });
+    const [state, setState] = useState({ collapsed: true, shown: false });
 
     return (
         <SideBarContext.Provider value={{ state, setState }}>
