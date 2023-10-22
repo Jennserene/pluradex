@@ -1,11 +1,11 @@
 .root {
-    @apply grid min-h-full transition-[grid-template-columns] duration-300 ease-in-out;
+    @apply grid min-h-full md:transition-[grid-template-columns] duration-300 ease-in-out;
 }
 
 /******SIDE BAR NAVIGATION******/
 
 .nav {
-    @apply bg-indigo-700 text-zinc-50 z-20 transition-all duration-300 ease-in-out fixed md:static md:translate-x-0;
+    @apply bg-th-background-secondary text-th-primary-high z-20 transition-all duration-300 ease-in-out fixed md:static md:translate-x-0;
 }
 
 .navMenuContainer {
@@ -13,7 +13,7 @@
 }
 
 .navMenuHeader {
-    @apply flex items-center border-b border-b-indigo-800 transition-none;
+    @apply flex items-center border-b-4 border-b-th-accent-low transition-none h-[73px];
 }
 
 .navMenuLogo {
@@ -21,7 +21,7 @@
 }
 
 .toggleNavMenuButton {
-    @apply grid place-content-center hover:bg-indigo-800 w-10 h-10 rounded-full;
+    @apply grid place-content-center hover:bg-th-accent-low w-10 h-10 rounded-full;
 }
 
 .navMenuFooter {
@@ -33,7 +33,7 @@
 }
 
 .navItem {
-    @apply text-indigo-100 hover:bg-indigo-900 flex transition-colors duration-300;
+    @apply text-th-primary-medium hover:bg-th-accent-low flex transition-colors duration-300 whitespace-nowrap;
 }
 
 .navLink {
@@ -79,7 +79,7 @@
 /*}*/
 
 .content {
-    @apply flex flex-col flex-grow;
+    @apply flex flex-col flex-grow px-6;
 }
 
 .footer {

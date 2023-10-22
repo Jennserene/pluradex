@@ -1,7 +1,19 @@
 .pageContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
+  @apply flex flex-col justify-between p-1 gap-8 md:gap-16;
+}
+
+.sectionTitle {
+  @apply text-base font-bold leading-snug text-th-primary-low mt-2;
+}
+
+.systemName {
+  @apply text-th-primary-high text-4xl md:text-7xl font-bold md:leading-[108px] py-2 md:py-4;
+}
+
+.info {
+  @apply text-th-primary-medium text-lg font-bold leading-normal;
+}
+
+.text {
+  @apply text-th-primary-higher text-xl md:text-4xl font-normal md:leading-[51.12px];
 }

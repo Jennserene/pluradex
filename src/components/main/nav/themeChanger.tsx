@@ -11,8 +11,8 @@ const ThemeChanger = () => {
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
-  const circle = <div className={styles.themeSwitcherCircle} />;
-  const text = <span className={styles.themeSwitcherText}>{ theme === 'dark' ? 'Dark' : 'Light' }</span>;
+  const circle = <div className={styles.themeSwitcherCircle} key={"circle"} />;
+  const text = <span className={styles.themeSwitcherText} key={"text"}>{ theme === 'dark' ? 'Dark' : 'Light' }</span>;
 
   return (
     <button className={cn(styles.themeSwitcher, {

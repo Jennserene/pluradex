@@ -12,11 +12,15 @@ interface Props {
 }
 
 const Main = ({ children }: Props) => {
-  const collapsed = useSideBarContext().state.collapsed
+  const ctxVal = useSideBarContext().state
+  const collapsed = ctxVal.collapsed
+
+  const desktop = window.innerWidth > 768;
+
   return (
     <div className={cn(styles.root, {
-      "grid-cols-sidebar": !collapsed,
-      "grid-cols-sidebar-collapsed": collapsed,
+      "grid-cols-sidebar": !collapsed && desktop,
+      "grid-cols-sidebar-collapsed": collapsed && desktop,
     })}>
       <SideBar />
       <div className={styles.main}>
@@ -27,7 +31,7 @@ const Main = ({ children }: Props) => {
         <Footer />
       </div>
     </div>
-)
+  )
 }
 
 export default Main;
