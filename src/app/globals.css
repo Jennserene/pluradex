@@ -4,25 +4,38 @@
 
 /******BASIC THEMES******/
 :root {
-  --background: theme('colors.white');
-  --background-secondary: theme('colors.gray.50');
+  --background: theme('colors.indigo-blue.100');
+  --background-secondary: theme('colors.indigo-blue.200');
 
-  --primary-dark: theme('colors.gray.900');
-  --primary-medium: theme('colors.gray.700');
-  --primary-light: theme('colors.gray.500');
+  /* low/medium/high refers to the contrast between the color and the background */
+  --primary-low: theme('colors.tertiary-violet.600');
+  --primary-medium: theme('colors.indigo-blue.700');
+  --primary-high: theme('colors.indigo-blue.900');
+  --primary-higher: theme('colors.darker-black');
+  --primary-highest: theme('colors.black');
+
+  --accent-low: theme('colors.neutral-grey.200');
+  --accent-high: theme('colors.indigo-blue.400');
+
+  --avatar-border: theme('colors.indigo-blue.200');
+  --toggle-button: theme('colors.indigo-blue.900');
 }
 
 [data-theme='dark'] {
-  --background: theme('colors.black');
-  --background-secondary: theme('colors.gray.800');
+  --background: theme('colors.neutral-grey.900');
+  --background-secondary: theme('colors.neutral-grey.800');
 
-  --accent-dark: theme('colors.fuchsia.900');
-  --accent-medium: theme('colors.fuchsia.700');
-  --accent-light: theme('colors.fuchsia.500');
+  --primary-low: theme('colors.indigo-blue.400');
+  --primary-medium: theme('colors.indigo-blue.400');
+  --primary-high: theme('colors.white');
+  --primary-higher: theme('colors.white');
+  --primary-highest: theme('colors.white');
 
-  --primary-dark: theme('colors.gray.300');
-  --primary-medium: theme('colors.gray.200');
-  --primary-light: theme('colors.gray.100');
+  --accent-low: theme('colors.neutral-black');
+  --accent-high: theme('colors.neutral-grey.800');
+
+  --avatar-border: theme('colors.indigo-blue.200');
+  --toggle-button: theme('colors.neutral-grey.800');
 }
 /******CUSTOM THEMES******/
 /*Potential option to add a variety of custom themes for users who contribute to the site's maintenance*/

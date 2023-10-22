@@ -6,15 +6,34 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'indigo-blue': {
+          100: '#EBEDF7',
+          200: '#CFD3EC',
+          400: '#99A1D5',
+          700: '#4756B4',
+          800: '#2D3FAA',
+          900: '#22318B',
+        },
+        'tertiary-violet': {
+          600: '#8C629E',
+        },
+        'neutral-grey': {
+          200: '#D0D7DE',
+          800: '#404959',
+          900: '#262F40',
+        },
+        'neutral-black': '#1A1A19',
+        'darker-black': '#111111',
         'th-background': 'var(--background)',
         'th-background-secondary': 'var(--background-secondary)',
-        'th-foreground': 'var(--foreground)',
-        'th-primary-dark': 'var(--primary-dark)',
+        'th-primary-low': 'var(--primary-low)',
         'th-primary-medium': 'var(--primary-medium)',
-        'th-primary-light': 'var(--primary-light)',
-        'th-accent-dark': 'var(--accent-dark)',
-        'th-accent-medium': 'var(--accent-medium)',
-        'th-accent-light': 'var(--accent-light)',
+        'th-primary-high': 'var(--primary-high)',
+        'th-primary-higher': 'var(--primary-higher)',
+        'th-primary-highest': 'var(--primary-highest)',
+        'th-accent-low': 'var(--accent-low)',
+        'th-accent-high': 'var(--accent-high)',
+        'th-toggle-button': 'var(--toggle-button)',
       },
       gridTemplateColumns: {
         sidebar: "300px auto",

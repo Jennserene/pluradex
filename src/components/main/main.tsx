@@ -21,7 +21,7 @@ const Main = ({ children }: Props) => {
       <SideBar />
       <div className={styles.main}>
         <Header />
-        <main>
+        <main className={styles.content}>
           {children}
         </main>
         <Footer />

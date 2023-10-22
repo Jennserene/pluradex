@@ -6,6 +6,7 @@ import MenuHeader from "./menuHeader";
 import { useOnClickOutside } from "usehooks-ts";
 import { useRef } from "react";
 import cn from "classnames";
+import MenuFooter from "@/components/main/nav/menuFooter";
 
 const SideBar = () => {
     const ctxVal = useSideBarContext()
@@ -30,6 +31,7 @@ const SideBar = () => {
             <div className={styles.navMenuContainer}>
                 <MenuHeader />
                 <Menu />
+                <MenuFooter />
             </div>
         </nav>
     )

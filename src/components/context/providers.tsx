@@ -9,12 +9,12 @@ interface Props {
 
 const Providers = ({ children }: Props) => {
   return (
-  <ThemeProvider>
-    <SideBarProvider>
-      {children}
-    </SideBarProvider>
-  </ThemeProvider>
-)
+    <ThemeProvider>
+      <SideBarProvider>
+        {children}
+      </SideBarProvider>
+    </ThemeProvider>
+  )
 }
 
 export default Providers;

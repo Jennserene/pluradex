@@ -24,6 +24,10 @@
     @apply grid place-content-center hover:bg-indigo-800 w-10 h-10 rounded-full;
 }
 
+.navMenuFooter {
+    @apply flex flex-col items-center justify-center gap-2 p-4;
+}
+
 .navList {
     @apply flex-grow my-2 flex flex-col gap-2 items-stretch;
 }
@@ -36,14 +40,26 @@
     @apply flex gap-2;
 }
 
+.themeSwitcher {
+    @apply w-[79px] h-8 py-1 bg-th-toggle-button rounded-full justify-end items-center gap-1 inline-flex whitespace-nowrap;
+}
+
+.themeSwitcherCircle {
+    @apply w-6 h-6 bg-white rounded-full shadow;
+}
+
+.themeSwitcherText {
+    @apply text-white text-base font-medium;
+}
+
 /******MAIN CONTENT AREA******/
 
 .main {
-    @apply flex flex-col min-h-screen;
+    @apply flex flex-col bg-th-background text-th-primary-higher min-h-screen;
 }
 
 .header {
-    @apply bg-white text-zinc-500 flex items-center w-screen md:w-full sticky z-10 px-4 shadow-sm h-[73px] top-0;
+    @apply text-th-primary-high border-b-4 border-th-accent-low flex items-center w-screen md:w-full sticky z-10 px-4 shadow-sm h-[73px] top-0;
 }
 
 .headerLeft {
@@ -62,8 +78,12 @@
 /*    @apply md:hidden;*/
 /*}*/
 
+.content {
+    @apply flex flex-col flex-grow;
+}
+
 .footer {
-    @apply bg-white text-zinc-500 flex items-center w-screen md:w-full;
+    @apply flex items-center justify-center w-screen md:w-full border-t-4 border-th-accent-low;
 }
 
 /******GLOBAL******/

@@ -4,13 +4,17 @@ import cn from "classnames";
 import {ChevronDoubleLeftIcon, ChevronDoubleRightIcon} from "@heroicons/react/24/outline";
 
 const MenuHeader = () => {
-    const ctxVal = useSideBarContext()
+    const ctxVal = useSideBarContext();
     const [ collapsed, setCollapsed ] = [ ctxVal.state.collapsed, ctxVal.setState ];
 
     const Icon = collapsed ? ChevronDoubleRightIcon : ChevronDoubleLeftIcon;
 
     const toggleMenu = () => {
-        setCollapsed({ collapsed: !collapsed })
+        if (window.innerWidth > 768) {
+            setCollapsed({ collapsed: !collapsed, shown: true })
+        } else {
+            setCollapsed({ collapsed: !collapsed, shown: false })
+        }
     }
 
     return (
