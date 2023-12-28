@@ -5,16 +5,14 @@ import {ChevronDoubleLeftIcon, ChevronDoubleRightIcon} from "@heroicons/react/24
 
 const MenuHeader = () => {
     const ctxVal = useSideBarContext();
-    const [ collapsed, setCollapsed ] = [ ctxVal.state.collapsed, ctxVal.setState ];
+    const [ collapsed, isDesktop, setCollapsed ]
+      = [ ctxVal.state.collapsed, ctxVal.state.isDesktop, ctxVal.setState ]
 
     const Icon = collapsed ? ChevronDoubleRightIcon : ChevronDoubleLeftIcon;
 
     const toggleMenu = () => {
-        if (window.innerWidth > 768) {
-            setCollapsed({ collapsed: !collapsed, shown: true })
-        } else {
-            setCollapsed({ collapsed: !collapsed, shown: false })
-        }
+        isDesktop && setCollapsed({ ...ctxVal.state, collapsed: !collapsed })
+        !isDesktop && setCollapsed({ ...ctxVal.state, collapsed: false, shown: false })
     }
 
     return (
@@ -23,7 +21,7 @@ const MenuHeader = () => {
             "py-4 justify-center": collapsed,
         })}>
             {!collapsed && <span className={styles.navMenuLogo}>Pluradex</span>}
-            <button className={styles.toggleNavMenuButton} onClick={toggleMenu} aria-label="Close Navigation" aria-expanded={!collapsed}>
+            <button className={styles.toggleNavMenuButton} onClick={toggleMenu} aria-label="Toggle Navigation" aria-expanded={!collapsed}>
                 <Icon className={styles.icon} />
             </button>
         </div>

@@ -7,11 +7,11 @@ const Hamburger = () => {
     const ctxVal = useSideBarContext()
     const [ shown, setState ] = [ ctxVal.state.shown, ctxVal.setState ];
     const showNavMenu = () => {
-        setState({ collapsed: false, shown: !shown })
+        setState({ ...ctxVal.state, collapsed: false, shown: !shown })
     }
 
     return (
-        <div>
+        <div className={styles.headerHamburger}>
             { !shown ?
                 <button className={styles.openNavMenuButton} onClick={showNavMenu} aria-label="Navigation Menu" aria-expanded="false">
                     <Bars3Icon className={styles.icon} />

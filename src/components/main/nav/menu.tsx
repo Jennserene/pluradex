@@ -1,38 +1,88 @@
-import styles from "@/app/layout.module.css";
-import {ReactNode} from "react";
-import { gatherNavItems } from "@/utilities/nav";
-import Link from "next/link";
-import cn from "classnames";
-import {useSideBarContext} from "@/components/context/sideBarContext";
+import styles from "@/app/layout.module.css"
+import {ReactNode, useEffect, useState} from "react"
+import { gatherNavItemsSideBar } from "@/utilities/nav"
+import Link from "next/link"
+import cn from "classnames"
+import {useSideBarContext} from "@/components/context/sideBarContext"
+import {useSession} from "next-auth/react"
 
 export type NavItem = {
     label: string;
     href: string;
     icon: ReactNode;
-    subNav?: NavItem[];
+    subNav?: NavItem[]
 }
+
 const Menu = () => {
-    const collapsed = useSideBarContext().state.collapsed
-    const listNavItems = () => {
-        return gatherNavItems().map((item: NavItem, index: number) => {
-            return (
-                <li key={`nav-item-${index}`} className={cn(styles.navItem, {
-                    "rounded-md p-2 mx-3 gap-4": !collapsed,
-                    "rounded-full p-2 mx-3 w-10 h-10": collapsed,
-                })}>
-                    <Link href={item.href} className={styles.navLink}>
-                        {item.icon} <span>{!collapsed && item.label}</span>
+    const ctxVal = useSideBarContext()
+    const [ collapsed, setCollapsed ] = [ ctxVal.state.collapsed, ctxVal.setState ]
+    const { status } = useSession()
+    const isSignedIn = status === "authenticated"
+    const [expandedSubNav, setExpandedSubNav] = useState<string | null>(null)
+
+    useEffect(() => {
+        console.log("menu")
+        collapsed && setExpandedSubNav(null)
+    }, [collapsed])
+
+    const toggleSubNav = (label: string) => {
+        if (expandedSubNav === label) {
+            setExpandedSubNav(null)
+        } else {
+            setCollapsed({ ...ctxVal.state, collapsed: false})
+            setExpandedSubNav(label)
+        }
+    }
+
+    const renderSubNav = (subNavItems: NavItem[]) => {
+        return (
+          <ul className={styles.subNavList}>
+              {subNavItems.map((subNavItem, subIndex) => (
+                <li key={`sub-nav-item-${subIndex}`} className={styles.subNavItem}>
+                    <Link href={subNavItem.href} className={styles.subNavLink}>
+                        {subNavItem.icon} <span>{subNavItem.label}</span>
                     </Link>
                 </li>
-            )
+              ))}
+          </ul>
+        )
+    }
+
+    const listNavItems = () => {
+        return gatherNavItemsSideBar(isSignedIn).map((item: NavItem, index: number) => {
+            const isSubNavExpanded = expandedSubNav === item.label
+
+            const styling = cn(styles.navItem, {
+                "rounded-md p-2 mx-3 gap-4": !collapsed,
+                "rounded-full p-2 mx-3": collapsed,
+            })
+
+            if (item.subNav && item.subNav.length > 0) {
+                return (
+                  <li key={`nav-item-${index}`} className={styling}>
+                      <button onClick={() => toggleSubNav(item.label)} className={styles.hasSubNav}>
+                          {item.icon} <span>{!collapsed && item.label}</span>
+                      </button>
+                      {isSubNavExpanded && renderSubNav(item.subNav)}
+                  </li>
+                )
+            } else {
+                return (
+                  <li key={`nav-item-${index}`} className={styling}>
+                      <Link href={item.href} className={styles.navLink}>
+                          {item.icon} <span>{!collapsed && item.label}</span>
+                      </Link>
+                  </li>
+                )
+            }
         })
     }
 
     return (
-        <ul className={styles.navList}>
-            {listNavItems()}
-        </ul>
+      <ul className={styles.navList}>
+          {listNavItems()}
+      </ul>
     )
 }
 
-export default Menu;
+export default Menu

@@ -1,0 +1,15 @@
+.root {
+    @apply flex flex-col items-center flex-grow justify-between w-full p-2;
+}
+
+.pageContainer {
+    @apply flex flex-col items-center justify-between gap-8 md:gap-16;
+}
+
+.buttonContainer {
+    @apply flex flex-row gap-4;
+}
+
+.error {
+    @apply text-red-500;
+}

@@ -42,6 +42,9 @@ module.exports = {
       gridTemplateRows: {
         header: "64px auto",
       },
+      minWidth: {
+        '6': '24px',
+      }
     },
   },
   plugins: [],

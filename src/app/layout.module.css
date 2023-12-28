@@ -1,11 +1,15 @@
 .root {
-    @apply grid min-h-full md:transition-[grid-template-columns] duration-300 ease-in-out;
+    @apply grid grid-flow-col bg-th-background min-h-full md:transition-[grid-template-columns] duration-300 ease-in-out;
 }
 
 /******SIDE BAR NAVIGATION******/
 
-.nav {
+.nav, .hiddenMenuPlaceholder {
     @apply bg-th-background-secondary text-th-primary-high z-20 transition-all duration-300 ease-in-out fixed md:static md:translate-x-0;
+}
+
+.hiddenMenuPlaceholder {
+    @apply w-0 max-w-0;
 }
 
 .navMenuContainer {
@@ -28,16 +32,20 @@
     @apply flex flex-col items-center justify-center gap-2 p-4;
 }
 
-.navList {
+.navList, .subNavList {
     @apply flex-grow my-2 flex flex-col gap-2 items-stretch;
 }
 
-.navItem {
-    @apply text-th-primary-medium hover:bg-th-accent-low flex transition-colors duration-300 whitespace-nowrap;
+.subNavList {
+    @apply pl-4 -mt-2;
 }
 
-.navLink {
-    @apply flex gap-2;
+.navItem, .subNavItem {
+    @apply text-th-primary-medium hover:bg-th-accent-low flex flex-col transition-colors duration-300 whitespace-nowrap;
+}
+
+.navLink, .subNavLink, .hasSubNav {
+    @apply flex flex-row gap-2;
 }
 
 .themeSwitcher {
@@ -59,7 +67,7 @@
 }
 
 .header {
-    @apply text-th-primary-high border-b-4 border-th-accent-low flex items-center w-screen md:w-full sticky z-10 px-4 shadow-sm h-[73px] top-0;
+    @apply bg-th-background text-th-primary-high border-b-4 border-th-accent-low flex items-center w-screen md:w-full sticky z-10 px-4 shadow-sm h-[73px] top-0;
 }
 
 .headerLeft {
@@ -71,7 +79,15 @@
 }
 
 .headerRight {
-    @apply md:hidden;
+    @apply flex flex-row;
+}
+
+.headerNav {
+    @apply flex flex-row flex-nowrap gap-4 md:gap-6 items-center;
+}
+
+.headerHamburger {
+    @apply flex items-center md:hidden;
 }
 
 /*.openNavMenuButton {*/
@@ -89,5 +105,5 @@
 /******GLOBAL******/
 
 .icon {
-    @apply h-6 w-6;
+    @apply h-6 w-6 min-w-6;
 }

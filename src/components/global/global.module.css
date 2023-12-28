@@ -1,0 +1,19 @@
+.stdButton {
+    @apply h-[60px] p-4 bg-th-background-secondary rounded-lg justify-start items-start gap-2.5 inline-flex
+}
+
+.stdButtonText {
+    @apply text-th-primary-high text-[21px] font-semibold leading-7;
+}
+
+.genericButton {
+    @apply w-full max-w-[405px];
+}
+
+.shortButton {
+    @apply w-[150px];
+}
+
+.fullButton {
+    @apply w-full;
+}

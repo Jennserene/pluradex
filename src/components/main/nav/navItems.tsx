@@ -15,7 +15,7 @@ import {
 let systemSlug = 'ToBeDynamicallyGenerated'
 
 export const baseNavItems: NavItem[] = [
-  {label: 'Home', href: '/', icon: <HomeIcon className={styles.icon} />},
+  // {label: 'Home', href: '/', icon: <HomeIcon className={styles.icon} />},
   {label: 'About', href: '/about', icon: <InformationCircleIcon className={styles.icon} />},
   {label: 'Resources', href: '/resources', icon: <LightBulbIcon className={styles.icon} />},
 ]
@@ -52,10 +52,14 @@ export const systemNavItems: NavItem[] = [
 
 export const loggedInNavItems: NavItem[] = [
   {label: 'Account Settings', href: '/settings', icon: <SparklesIcon className={styles.icon} />},
-  {label: 'Log Out', href: '/logout', icon: <SparklesIcon className={styles.icon} />},
+  // {label: 'Log Out', href: '/api/auth/signout', icon: <SparklesIcon className={styles.icon} />},
 ]
 
-export const loggedOutNavItems: NavItem[] = [
-  {label: 'Log In', href: '/login', icon: <SparklesIcon className={styles.icon} />},
-  {label: 'Sign Up', href: '/signup', icon: <SparklesIcon className={styles.icon} />},
+export const loggedInNavItemsHeader: NavItem[] = [
+  {label: 'Log Out', href: '/api/auth/signout', icon: <SparklesIcon className={styles.icon} />},
+]
+
+export const loggedOutNavItemsHeader: NavItem[] = [
+  {label: 'Log In', href: '/api/auth/signin', icon: <SparklesIcon className={styles.icon} />},
+  // {label: 'Sign Up', href: '/signup', icon: <SparklesIcon className={styles.icon} />},
 ]
