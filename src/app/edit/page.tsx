@@ -1,14 +1,11 @@
-import {auth} from "@/utilities/auth"
 
+const Dashboard = () => {
 
-const EditPage = () => {
-  const session = auth()
-  console.log(session)
   return (
     <div>
-      <h1>Edit Page</h1>
+      <h1>Edit Dashboard</h1>
     </div>
   )
 }
 
-export default EditPage
+export default Dashboard
