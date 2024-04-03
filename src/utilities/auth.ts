@@ -7,6 +7,7 @@ import {DynamoDB, DynamoDBClientConfig} from "@aws-sdk/client-dynamodb"
 import {DynamoDBDocument} from "@aws-sdk/lib-dynamodb"
 import {Adapter} from "next-auth/adapters"
 import {redirect} from "next/navigation"
+import {User} from "@auth/core/types"
 
 const dbConfig: DynamoDBClientConfig = {
   credentials: {
@@ -44,6 +45,12 @@ export const config = {
 
 export function auth(...args: [GetServerSidePropsContext["req"], GetServerSidePropsContext["res"]] | [NextApiRequest, NextApiResponse] | []) {
   return getServerSession(...args, config)
+}
+
+export async function getUser() {
+  const session = await auth()
+  if (session) return session.user as User
+  return null
 }
 
 export async function getLoggedInSession() {

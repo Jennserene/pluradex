@@ -1,10 +1,11 @@
+'use client'
 import styles from "@/app/layout.module.css"
 import {ReactNode, useEffect, useState} from "react"
 import { gatherNavItemsSideBar } from "@/utilities/nav"
 import Link from "next/link"
 import cn from "classnames"
 import {useSideBarContext} from "@/components/context/sideBarContext"
-import {useSession} from "next-auth/react"
+import { useUser } from "@/utilities/hooks/useUser"
 
 export type NavItem = {
     label: string;
@@ -16,8 +17,8 @@ export type NavItem = {
 const Menu = () => {
     const ctxVal = useSideBarContext()
     const [ collapsed, setCollapsed ] = [ ctxVal.state.collapsed, ctxVal.setState ]
-    const { status } = useSession()
-    const isSignedIn = status === "authenticated"
+    const [user] = useUser()
+    const isSignedIn = !!user
     const [expandedSubNav, setExpandedSubNav] = useState<string | null>(null)
 
     useEffect(() => {

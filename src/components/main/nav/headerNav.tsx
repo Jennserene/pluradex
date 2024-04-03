@@ -4,12 +4,12 @@ import styles from "@/app/layout.module.css"
 import Link from "next/link"
 import Hamburger from "@/components/header/hamburger"
 import {usePathname} from "next/navigation"
-import {useSession} from "next-auth/react"
 import {gatherNavItemsHeader} from "@/utilities/nav"
+import {useUser} from "@/utilities/hooks/useUser"
 
 const HeaderNav = () => {
-  const { status } = useSession()
-  const isSignedIn = status === "authenticated"
+  const [user] = useUser()
+  const isSignedIn = !!user
   const pathname = usePathname()
   const publicPaths = ["/", "about", "resources"]
   const isPublic = publicPaths.some(path => pathname.includes(path))

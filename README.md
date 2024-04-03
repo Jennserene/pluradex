@@ -2,16 +2,18 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+### DynamoDB Local
+
+Run `docker compose up` to start the local DB server.
+In a separate terminal, run `export DYNAMO_ENDPOINT="http://localhost:8007"` to set the endpoint for the local DB server.
+Then in that terminal run `dynamodb-admin` to start the local DB admin panel.
+
+### NextJS App Server
+
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

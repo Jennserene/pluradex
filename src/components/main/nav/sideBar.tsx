@@ -1,21 +1,20 @@
-'use client';
-import Menu from './menu';
-import {useSideBarContext} from "@/components/context/sideBarContext";
-import styles from "@/app/layout.module.css";
-import MenuHeader from "./menuHeader";
-import { useOnClickOutside } from "usehooks-ts";
+'use client'
+import Menu from './menu'
+import {useSideBarContext} from "@/components/context/sideBarContext"
+import styles from "@/app/layout.module.css"
+import MenuHeader from "./menuHeader"
+import { useOnClickOutside } from "usehooks-ts"
 import {useEffect, useRef} from "react"
-import cn from "classnames";
-import MenuFooter from "@/components/main/nav/menuFooter";
-import {useSession} from "next-auth/react"
+import cn from "classnames"
+import MenuFooter from "@/components/main/nav/menuFooter"
+import { useUser } from "@/utilities/hooks/useUser"
 
 const SideBar = () => {
     const ctxVal = useSideBarContext()
     const [ collapsed, shown, isDesktop, setCollapsed ]
         = [ ctxVal.state.collapsed, ctxVal.state.shown, ctxVal.state.isDesktop, ctxVal.setState ]
-    const { status } = useSession()
-    const isSignedIn = status === "authenticated"
-
+    const [user] = useUser()
+    const isSignedIn = !!user
     const ref = useRef<HTMLElement>(null)
     useOnClickOutside(ref, () => {
         isDesktop && setCollapsed({ ...ctxVal.state, collapsed: true, shown: true })

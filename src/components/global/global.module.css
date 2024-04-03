@@ -1,3 +1,11 @@
+.loadingOverlay {
+    @apply fixed bg-th-background top-0 left-0 w-full h-full flex justify-center items-center z-50;
+}
+
+.loadingIndicator {
+    @apply w-16 h-16 border-4 border-th-accent-low rounded-full animate-spin;
+}
+
 .stdButton {
     @apply h-[60px] p-4 bg-th-background-secondary rounded-lg justify-start items-start gap-2.5 inline-flex
 }

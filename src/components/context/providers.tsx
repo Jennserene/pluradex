@@ -1,23 +1,25 @@
-'use client';
-import { SessionProvider } from "next-auth/react";
-import {SideBarProvider} from "./sideBarContext";
+'use client'
+import {SideBarProvider} from "./sideBarContext"
+import {UserProvider} from "./userContext"
 import { ThemeProvider } from 'next-themes'
-import {ReactNode} from "react";
+import {ReactNode} from "react"
+import {User} from "@auth/core/types"
 
 interface Props {
-  children?: ReactNode;
+  children?: ReactNode,
+  user: User | null
 }
 
-const Providers = ({ children }: Props) => {
+const Providers = ({ children, user }: Props) => {
   return (
-    <SessionProvider>
+    <UserProvider userFromServer={user}>
       <ThemeProvider>
         <SideBarProvider>
           {children}
         </SideBarProvider>
       </ThemeProvider>
-    </SessionProvider>
+    </UserProvider>
   )
 }
 
-export default Providers;
+export default Providers
