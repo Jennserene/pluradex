@@ -1,5 +1,6 @@
 {
-  "appTitle": "pluradex",
+  "@@locale": "en",
+  "appTitle": "Pluradex",
   "@appTitle": {
     "description": "The title of the application"
   }

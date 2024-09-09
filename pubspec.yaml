@@ -1,19 +1,26 @@
 name: pluradex
 description: "A new Flutter project."
-
-# Prevent accidental publishing to pub.dev.
 publish_to: 'none'
-
 version: 1.0.0+1
 
 environment:
   sdk: ^3.5.1
+
+scripts:
+  install: flutter pub get
+  build: flutter pub run build_runner build --delete-conflicting-outputs
+  test: flutter test
+  analyze: flutter analyze
+  clean: flutter clean
+  cleanRebuild: rps clean; rps build; rps install
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  go_router: ^14.2.7
+  riverpod: ^2.5.1
 
 dev_dependencies:
   flutter_test:
