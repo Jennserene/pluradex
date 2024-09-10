@@ -5,9 +5,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "pluradex",
+      "name": "pluradex on web (chrome)",
       "request": "launch",
-      "type": "dart"
+      "type": "dart",
+      "args": [
+        "-d",
+        "chrome"
+      ]
     },
     {
       "name": "pluradex (profile mode)",

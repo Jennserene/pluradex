@@ -13,6 +13,7 @@ scripts:
   analyze: flutter analyze
   clean: flutter clean
   cleanRebuild: rps clean; rps build; rps install
+  startEmulators: firebase emulators:start
 
 dependencies:
   flutter:
